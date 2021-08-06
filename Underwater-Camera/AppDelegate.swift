@@ -17,13 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create the Main ViewController.
         let mainVC = MainViewController()
                 
-        // Create the NavigationController.
-        let navController = UINavigationController()
-        navController.setViewControllers([mainVC], animated: true)
-                
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
-        window!.rootViewController = navController
+        window!.rootViewController = mainVC
         window!.makeKeyAndVisible()
         
         return true

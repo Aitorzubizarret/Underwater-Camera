@@ -23,13 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the Main ViewController.
         let mainVC = MainViewController()
                 
-        // Create the NavigationController.
-        let navController = UINavigationController()
-        navController.setViewControllers([mainVC], animated: true)
-                
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = navController
+        window?.rootViewController = mainVC
         window?.makeKeyAndVisible()
     }
 
