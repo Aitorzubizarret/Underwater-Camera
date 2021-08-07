@@ -8,22 +8,36 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    // MARK: - Properties
+    
+    var barometerSensorManager: BarometerSensor?
+    var timer = Timer()
+    
+    // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Barometer sensor
+        self.barometerSensorManager = BarometerSensor.shared
+        self.setupBarometerSensorDataReadoutTimer()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    ///
+    /// Setup a timer to execute the method "getBarometerSensorData" every x seconds.
+    ///
+    private func setupBarometerSensorDataReadoutTimer(timeIntervar: TimeInterval = 2) {
+        self.timer = Timer.scheduledTimer(timeInterval: timeIntervar, target: self, selector: #selector(self.getBarometerSensorData), userInfo: nil, repeats: true)
     }
-    */
-
+    
+    ///
+    /// Get Barometer sensor data.
+    ///
+    @objc private func getBarometerSensorData() {
+        guard let barometerSensorManager = self.barometerSensorManager else { return }
+        
+        print("\(barometerSensorManager.pressure_atm)")
+    }
+    
 }

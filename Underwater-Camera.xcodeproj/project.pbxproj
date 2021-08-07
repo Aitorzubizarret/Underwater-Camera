@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420EFBF426BEBA2A0030CDA4 /* BarometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */; };
 		426A82CE26BC91230011481B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A82CC26BC91230011481B /* MainViewController.swift */; };
 		426A82CF26BC91230011481B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426A82CD26BC91230011481B /* MainViewController.xib */; };
 		42D5BDAC26B85951006E67F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5BDAB26B85951006E67F9 /* AppDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarometerSensor.swift; sourceTree = "<group>"; };
 		426A82CC26BC91230011481B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		426A82CD26BC91230011481B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		42D5BDA826B85951006E67F9 /* Underwater-Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Underwater-Camera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				426A82CC26BC91230011481B /* MainViewController.swift */,
+				420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				42D5BDAC26B85951006E67F9 /* AppDelegate.swift in Sources */,
 				42D5BDAE26B85951006E67F9 /* SceneDelegate.swift in Sources */,
 				426A82CE26BC91230011481B /* MainViewController.swift in Sources */,
+				420EFBF426BEBA2A0030CDA4 /* BarometerSensor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
