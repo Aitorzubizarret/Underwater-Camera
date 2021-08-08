@@ -20,6 +20,7 @@
 		420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarometerSensor.swift; sourceTree = "<group>"; };
 		426A82CC26BC91230011481B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		426A82CD26BC91230011481B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		42B52CA826C08A700001FEDF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		42D5BDA826B85951006E67F9 /* Underwater-Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Underwater-Camera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D5BDAB26B85951006E67F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D5BDAD26B85951006E67F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		42D5BD9F26B85951006E67F9 = {
 			isa = PBXGroup;
 			children = (
+				42B52CA826C08A700001FEDF /* README.md */,
 				42D5BDAA26B85951006E67F9 /* Underwater-Camera */,
 				42D5BDA926B85951006E67F9 /* Products */,
 			);
