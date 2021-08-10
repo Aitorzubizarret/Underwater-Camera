@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
     @objc private func getBarometerSensorData() {
         guard let barometerSensorManager = self.barometerSensorManager else { return }
         
-        print("\(barometerSensorManager.pressure_atm)")
+        print("Pressure \(Int(barometerSensorManager.pressure_kPa)) kPa")
     }
     
 }

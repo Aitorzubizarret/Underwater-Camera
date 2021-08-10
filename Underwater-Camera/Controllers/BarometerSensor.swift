@@ -15,6 +15,7 @@ final class BarometerSensor {
     static let shared = BarometerSensor() // Singleton
     let altimeterManager = CMAltimeter()
     var pressure_atm: Float = -1
+    var pressure_kPa: Float = -1
     
     // MARK: - Methods
     
@@ -31,8 +32,8 @@ final class BarometerSensor {
             // Start Altimeter sensor data readout.
             self.altimeterManager.startRelativeAltitudeUpdates(to: OperationQueue.main) { (data, error) in
                 if let altimeterData = data {
-                    let pressure_kPa = altimeterData.pressure.floatValue
-                    self.pressure_atm = 0.00986923266 * pressure_kPa
+                    self.pressure_kPa = altimeterData.pressure.floatValue
+                    self.pressure_atm = 0.00986923266 * self.pressure_kPa
                 }
             }
         }
