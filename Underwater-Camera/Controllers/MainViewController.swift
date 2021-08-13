@@ -27,10 +27,17 @@ class MainViewController: UIViewController {
         
         // Barometer sensor
         self.setupBarometerSensor()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Camera
         self.setupCamera()
     }
+}
+
+// MARK: - Barometer Sensor
+
+extension MainViewController {
     
     ///
     /// Setup the Barometer sensor.
@@ -58,17 +65,28 @@ class MainViewController: UIViewController {
         self.pressureLabel.text = "Pressure: \(Int(pressureValue)) kPa"
     }
     
+}
+
+// MARK: - Camera
+
+extension MainViewController {
+    
     ///
     /// Setup the Camera.
     ///
     private func setupCamera() {
         self.cameraManager = Camera.shared
         
-        if let cameraManager = self.cameraManager,
-           cameraManager.checkPermission() {
-            cameraManager.setupCameraOutput(previewView: self.cameraPreviewView)
-        } else {
-            print("NO camera permission")
+        guard let cameraManager = self.cameraManager else { return }
+        
+        cameraManager.handleCameraPermission { (error) in
+            if let error = error {
+                print("Camera permission error:  \(error.description)")
+            } else {
+                DispatchQueue.main.async {
+                    cameraManager.setupCameraOutput(previewView: self.cameraPreviewView)
+                }
+            }
         }
     }
     

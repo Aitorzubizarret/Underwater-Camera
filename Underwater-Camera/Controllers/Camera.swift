@@ -8,57 +8,44 @@
 import UIKit
 import AVFoundation
 
+protocol CameraPermissionHandler {
+    func handleCameraPermission(completion: @escaping (_ error: PermissionError?) -> Void)
+}
+
+enum PermissionError: Error {
+    // Throw when the user denied the permission.
+    case denied
+    
+    // Throw when the user can't grant access due to restrictions.
+    case restricted
+}
+
+extension PermissionError: CustomStringConvertible {
+    
+    var description: String {
+        switch self {
+        case .denied: return "User denied permission."
+        case .restricted: return "User can't grant access due to restrictions."
+        }
+    }
+    
+}
+
 final class Camera {
     
     // MARK: - Properties
     
     static let shared = Camera() // Singleton
+    
     private var captureSession: AVCaptureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
+    
     private var previewLayer = AVCaptureVideoPreviewLayer()
     private var previewView: UIView?
     
     // MARK: - Methods
     
     init() {}
-    
-    ///
-    /// Check camera permission.
-    ///
-    public func checkPermission() -> Bool {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized:
-            print("Camera permission: Authorized")
-            return true
-            //self.setupCameraSession()
-        case .notDetermined:
-            print("Camera permission: Not Determined")
-            self.askCameraPermission()
-            return false
-        case .denied:
-            print("Camera permission: Denied")
-            return false
-        case .restricted:
-            print("Camera permission: Restricted")
-            return false
-        default:
-            print("Camera permission: ¿Default?")
-            return false
-        }
-    }
-    
-    ///
-    /// Ask permission to the user to access the camera.
-    ///
-    private func askCameraPermission() {
-        AVCaptureDevice.requestAccess(for: .video) { (granted) in
-            if granted {
-                print("Permission granted.")
-            } else {
-                print("The user has NOT granted access to the camera.")
-            }
-        }
-    }
     
     ///
     /// Setup the view to display the camera output image.
@@ -112,6 +99,41 @@ final class Camera {
         
         previewView.layer.addSublayer(self.previewLayer)
         self.previewLayer.frame = previewView.frame
+    }
+    
+}
+
+// MARK: - Camera Permission Handler
+
+extension Camera: CameraPermissionHandler {
+    
+    func handleCameraPermission(completion: @escaping (PermissionError?) -> Void) {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        switch status {
+        case .authorized:
+            print("Authorized")
+            completion(nil)
+        case .notDetermined:
+            print("Not determined")
+            AVCaptureDevice.requestAccess(for: .video) { (granted) in
+                if granted {
+                    print("Permission granted.")
+                    completion(nil)
+                } else {
+                    print("The user has NOT granted access to the camera.")
+                    completion(.denied)
+                }
+            }
+        case .denied:
+            print("Denied")
+            completion(.denied)
+        case .restricted:
+            print("Restricted")
+            completion(.restricted)
+        default: // For future status types.
+            print("Default")
+        }
     }
     
 }
