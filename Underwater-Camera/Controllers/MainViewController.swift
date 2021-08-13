@@ -9,9 +9,15 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - UI Elements
+    
+    @IBOutlet weak var cameraPreviewView: UIView!
+    @IBOutlet weak var pressureLabel: UILabel!
+    
     // MARK: - Properties
     
     var barometerSensorManager: BarometerSensor?
+    var cameraManager: Camera?
     var timer = Timer()
     
     // MARK: - Methods
@@ -20,7 +26,18 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         // Barometer sensor
+        self.setupBarometerSensor()
+        
+        // Camera
+        self.setupCamera()
+    }
+    
+    ///
+    /// Setup the Barometer sensor.
+    ///
+    private func setupBarometerSensor() {
         self.barometerSensorManager = BarometerSensor.shared
+        
         self.setupBarometerSensorDataReadoutTimer()
     }
     
@@ -37,7 +54,21 @@ class MainViewController: UIViewController {
     @objc private func getBarometerSensorData() {
         guard let barometerSensorManager = self.barometerSensorManager else { return }
         
-        print("Pressure \(Int(barometerSensorManager.pressure_kPa)) kPa")
+        self.pressureLabel.text = "Pressure: \(Int(barometerSensorManager.pressure_kPa)) kPa"
+    }
+    
+    ///
+    /// Setup the Camera.
+    ///
+    private func setupCamera() {
+        self.cameraManager = Camera.shared
+        
+        if let cameraManager = self.cameraManager,
+           cameraManager.checkPermission() {
+            cameraManager.setupCameraOutput(previewView: self.cameraPreviewView)
+        } else {
+            print("NO camera permission")
+        }
     }
     
 }
