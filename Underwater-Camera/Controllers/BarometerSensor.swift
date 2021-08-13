@@ -13,9 +13,9 @@ final class BarometerSensor {
     // MARK: - Properties
     
     static let shared = BarometerSensor() // Singleton
-    let altimeterManager = CMAltimeter()
-    var pressure_atm: Float = -1
-    var pressure_kPa: Float = -1
+    private let altimeterManager = CMAltimeter()
+    private var pressure_atm: Float = -1
+    private var pressure_kPa: Float = -1
     
     // MARK: - Methods
     
@@ -37,6 +37,13 @@ final class BarometerSensor {
                 }
             }
         }
+    }
+    
+    ///
+    /// Returns the pressure value in kPa.
+    ///
+    public func getPressureValueInKPA() -> Float? {
+        return self.pressure_kPa
     }
     
 }

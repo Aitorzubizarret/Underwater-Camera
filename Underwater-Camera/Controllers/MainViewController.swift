@@ -52,9 +52,10 @@ class MainViewController: UIViewController {
     /// Get Barometer sensor data.
     ///
     @objc private func getBarometerSensorData() {
-        guard let barometerSensorManager = self.barometerSensorManager else { return }
+        guard let barometerSensorManager = self.barometerSensorManager,
+              let pressureValue = barometerSensorManager.getPressureValueInKPA() else { return }
         
-        self.pressureLabel.text = "Pressure: \(Int(barometerSensorManager.pressure_kPa)) kPa"
+        self.pressureLabel.text = "Pressure: \(Int(pressureValue)) kPa"
     }
     
     ///
