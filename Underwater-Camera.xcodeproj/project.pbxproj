@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		420EFBF426BEBA2A0030CDA4 /* BarometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */; };
+		420EFBF726BEE2D80030CDA4 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EFBF626BEE2D80030CDA4 /* Camera.swift */; };
 		426A82CE26BC91230011481B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A82CC26BC91230011481B /* MainViewController.swift */; };
 		426A82CF26BC91230011481B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426A82CD26BC91230011481B /* MainViewController.xib */; };
 		42D5BDAC26B85951006E67F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5BDAB26B85951006E67F9 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarometerSensor.swift; sourceTree = "<group>"; };
+		420EFBF626BEE2D80030CDA4 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		426A82CC26BC91230011481B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		426A82CD26BC91230011481B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		42B52CA826C08A700001FEDF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			children = (
 				426A82CC26BC91230011481B /* MainViewController.swift */,
 				420EFBF326BEBA2A0030CDA4 /* BarometerSensor.swift */,
+				420EFBF626BEE2D80030CDA4 /* Camera.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D5BDAC26B85951006E67F9 /* AppDelegate.swift in Sources */,
+				420EFBF726BEE2D80030CDA4 /* Camera.swift in Sources */,
 				42D5BDAE26B85951006E67F9 /* SceneDelegate.swift in Sources */,
 				426A82CE26BC91230011481B /* MainViewController.swift in Sources */,
 				420EFBF426BEBA2A0030CDA4 /* BarometerSensor.swift in Sources */,
