@@ -95,10 +95,11 @@ final class Camera {
                 
         // Add the PreviewLayer (video data output) to the view.
         self.previewLayer.session = self.captureSession
+        self.previewLayer.frame.size = previewView.frame.size
         self.previewLayer.videoGravity = .resizeAspectFill
+        self.previewLayer.connection?.videoOrientation = .landscapeLeft
         
         previewView.layer.addSublayer(self.previewLayer)
-        self.previewLayer.frame = previewView.frame
     }
     
 }
